@@ -1,0 +1,6 @@
+HTTP/2 400 
+content-type: application/json
+x-ratelimit-limit: 25
+x-ratelimit-remaining: 19
+x-ratelimit-reset: 1795737600
+x-ratelimit-window: 86400

@@ -1,0 +1,45 @@
+page_id: connection
+title: Connection
+description: Connect FreightUtils, with a free or Pro API key or without one.
+project_scoped: true
+components:
+- component_id: freightutils_connection
+  type: connection_form
+  title: FreightUtils
+  description: Paste your API key, or leave it empty for 25 requests a day. Flow Steward stores the key as a secret and never shows it again.
+  data:
+    connection_kind: extension
+    connection_type: freightutils
+    config_fields: []
+    secret_fields: [api_key]
+    required_secret_fields: []
+    test_action: test_connection
+  defaults:
+    display_name: FreightUtils
+  fields:
+  - path: display_name
+    label: Connection name
+    widget: text
+  - path: api_key
+    widget: secret
+    label: API key
+    required: false
+    help: Optional. Your FreightUtils API key, starting with fu_ (freightutils.com/pricing). Empty means 25 requests a day per address.
+  ui_schema:
+    actions:
+      test_label: Test connection
+- component_id: freightutils_connection_when
+  type: markdown
+  title: With or without a key
+  body: |
+    - **Without a key** FreightUtils answers 25 requests a day per address. The address is your Flow Steward server's, so every workflow on it shares the 25.
+    - **A free key** gives 100 requests a day; **Pro** gives 50,000 a month. Get one on [freightutils.com/pricing](https://www.freightutils.com/pricing).
+
+    **Test connection** uses one request and shows the allowance left. See **Setup Guide** for the steps.
+- component_id: freightutils_connection_help
+  type: markdown
+  title: If it fails
+  body: |
+    - **authentication_failed** — FreightUtils did not accept the key. Copy it again from FreightUtils, or leave the field empty.
+    - **invalid_connection** — the key has spaces or is cut short. Paste the whole key.
+    - **rate_limited** — the allowance is spent; the message says when it resets.

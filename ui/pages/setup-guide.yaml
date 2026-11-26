@@ -1,0 +1,57 @@
+page_id: setup-guide
+title: Setup Guide
+description: Connect FreightUtils in two minutes, with or without an API key.
+project_scoped: false
+components:
+- component_id: setup_what
+  type: markdown
+  title: What you get
+  body: |
+    FreightUtils is a freight reference service: dangerous goods (ADR), freight calculators, customs codes and duty, locations, carriers and equipment. Each answer names its source: the authority, the dataset and its edition.
+
+    This extension gives every FreightUtils operation its own workflow step. Every step only reads: nothing is booked, sent or changed.
+- component_id: setup_plan
+  type: markdown
+  title: 1. Choose how many requests you need
+  body: |
+    Each step uses one request of your FreightUtils allowance:
+
+    - **No API key** — 25 requests a day per address. Good for trying the steps.
+    - **Free API key** — 100 requests a day, and check receipts stored for 90 days.
+    - **Pro** — 50,000 requests a month (£19 a month on [freightutils.com/pricing](https://www.freightutils.com/pricing)).
+
+    When the allowance is spent, a step fails with `rate_limited` and says when it resets.
+- component_id: setup_key
+  type: markdown
+  title: 2. Get an API key (optional)
+  body: |
+    1. Open [freightutils.com/pricing](https://www.freightutils.com/pricing).
+    2. Under **Free API Key**, enter your email address and select **Get free API key**. For Pro, select **Subscribe**.
+    3. Copy the key FreightUtils gives you. It starts with `fu_`.
+
+    Keep the key private: anyone holding it uses your allowance.
+- component_id: setup_connection
+  type: markdown
+  title: 3. Add the connection
+  body: |
+    1. Open the **Connection** tab and choose your project.
+    2. Give the connection a name, paste the API key, or leave the key empty to use FreightUtils without one.
+    3. Select **Test connection**. It uses one request and shows the allowance left.
+- component_id: setup_use
+  type: markdown
+  title: 4. Use the steps
+  body: |
+    Add a FreightUtils step to a workflow and choose the connection. The **API** tab lists every step by group.
+
+    - Keep `source` with the values you store or show: FreightUtils' terms allow storing, showing and citing answers with their source line.
+    - For dangerous goods, set **Edition** or **Date** when the date of carriage matters: ADR 2027 applies from 1 January 2027, and ADR 2025 may still be used until 30 June 2027.
+    - Ask one question at a time. FreightUtils does not allow copying its datasets in bulk.
+- component_id: setup_troubleshooting
+  type: markdown
+  title: If it doesn't work
+  body: |
+    - **rate_limited** — the allowance is spent. Wait until the time the message names, or add a free API key.
+    - **authentication_failed** — the API key is wrong or revoked. Paste it again, or leave it empty.
+    - **upstream_validation_failed** — FreightUtils refused an input; the message says which and why.
+    - **not_found** — FreightUtils has no record for that code or name.
+    - **stale_data** — you set **If data is stale** to `refuse` and a dataset missed its update check. Leave the field empty to get the last verified edition with a warning.

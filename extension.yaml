@@ -1,0 +1,83 @@
+manifest_version: 2
+lifecycle:
+  data_schema_version: 1
+  data_migrations: []
+extension_id: flowsteward.freightutils
+kind: tool_provider
+version: 0.1.0
+release_stage: active
+billing_mode: free
+display_name: FreightUtils
+description: 'Freight reference data and calculators for your workflows and AI agents, from
+  FreightUtils: dangerous goods (ADR 2025 and 2027), loading metres, CBM, chargeable weight,
+  pallet fitting, ISO 14083 / GLEC emissions, HS codes, UK and EU duty, Incoterms 2020,
+  UN/LOCODE, airports, airlines, containers, ULDs and vehicles, and container, air waybill
+  and IMO number checks.
+
+
+  Every one of the 40 operations of the FreightUtils API has its own step, with everyday
+  shortcuts for a UN number, an HS code, a location code, a container number and an air
+  waybill. Each answer carries its source line, so values can be stored, shown and cited
+  with it. Every step reads; none changes anything. Works without an account (25 requests
+  a day) or with a free or Pro FreightUtils API key.'
+vendor:
+  name: Flow Steward
+  support_url: https://github.com/Flow-Steward/ext-operations-freightutils/issues
+  website_url: https://github.com/Flow-Steward/ext-operations-freightutils
+listing:
+  category: operations
+  categories:
+  - operations
+  - data
+  tags:
+  - freightutils
+  - freight
+  - logistics
+  - dangerous-goods
+  - adr
+  - customs
+  - hs-codes
+  - incoterms
+  - emissions
+  - shipping
+  summary: Dangerous goods, freight calculators, customs codes and duty, locations and
+    equipment for logistics workflows, each answer with its source.
+  setup_summary: Add a FreightUtils connection; paste a free or Pro API key for more
+    requests, or leave it empty to start with 25 requests a day.
+features:
+- tool
+- action
+required_scopes:
+- extension:invoke
+machine_auth:
+  service_account_key: svc_ext_freightutils
+  required_scopes:
+  - extension:invoke
+account_scope:
+  scope_type: project
+  description: Each FreightUtils connection, with or without an API key, belongs to one
+    project; a project may hold several.
+egress:
+  hosts:
+  - www.freightutils.com
+external_effects: []
+runtime:
+  contract_version: extension_host_v2
+  extension_contract_v2:
+    connection_types: contracts/connection_types.yaml
+    operation_manifest: contracts/operation_manifest.yaml
+    step_ui_manifest: contracts/step_ui_manifest.yaml
+entrypoint:
+  mode: subprocess
+  command:
+  - python3
+  - main.py
+  timeout_seconds: 60
+health:
+  command:
+  - python3
+  - health.py
+  timeout_seconds: 5
+ui_manifest: ui/ui_manifest.yaml
+action_manifest: ui/actions/actions.yaml
+python_requirements: []

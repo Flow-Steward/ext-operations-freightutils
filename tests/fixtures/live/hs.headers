@@ -1,0 +1,7 @@
+HTTP/2 200 
+content-type: application/json
+x-freightutils-upstream: {"state":"in_step","stale":false,"state_read_at":"2026-11-26T07:50:34.533Z","datasets":{"hs-codes-csv":{"state":"in_step","kind":"watched","last_success":"2026-11-26","window_days":7,"stale":false}}}
+x-ratelimit-limit: 25
+x-ratelimit-remaining: 21
+x-ratelimit-reset: 1795737600
+x-ratelimit-window: 86400

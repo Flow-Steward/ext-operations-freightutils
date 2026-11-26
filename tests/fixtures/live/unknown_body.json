@@ -1,0 +1,1 @@
+{"error":"Unknown field \"colour\" in the request body — refused, not ignored: a field this tool does not read could carry a declaration that changes the answer, so no answer is given. Accepted at the top level: mode, items, edition, as_of. Each item carries its own un_number, quantity, unit, inner_packaging_qty, packing_group and variant_index."}

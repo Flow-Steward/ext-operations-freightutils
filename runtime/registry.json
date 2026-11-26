@@ -1,0 +1,2923 @@
+{
+ "source": {
+  "operations": 40,
+  "sha256": "0ca8ec014e9128333f26e7360f70817d9262a9326350c1871b9da831d087ca2e",
+  "url": "https://www.freightutils.com/openapi.json"
+ },
+ "steps": {
+  "calculate_cbm": {
+   "fixed": {},
+   "has_body": false,
+   "inputs": {
+    "client": {
+     "in": "query",
+     "maxLength": 40,
+     "pattern": "^[A-Za-z0-9._-]{1,40}$",
+     "required": false,
+     "send_as": "client",
+     "type": "text"
+    },
+    "envelope": {
+     "enum": [
+      "1",
+      "1.1",
+      "1.2"
+     ],
+     "in": "query",
+     "required": false,
+     "send_as": "envelope",
+     "type": "text"
+    },
+    "h": {
+     "in": "query",
+     "required": true,
+     "send_as": "h",
+     "type": "number"
+    },
+    "l": {
+     "in": "query",
+     "required": true,
+     "send_as": "l",
+     "type": "number"
+    },
+    "pcs": {
+     "in": "query",
+     "required": false,
+     "send_as": "pcs",
+     "type": "integer"
+    },
+    "w": {
+     "in": "query",
+     "required": true,
+     "send_as": "w",
+     "type": "number"
+    }
+   },
+   "method": "GET",
+   "operation": "calculateCbm",
+   "path": "/api/cbm"
+  },
+  "calculate_chargeable_weight": {
+   "fixed": {},
+   "has_body": false,
+   "inputs": {
+    "client": {
+     "in": "query",
+     "maxLength": 40,
+     "pattern": "^[A-Za-z0-9._-]{1,40}$",
+     "required": false,
+     "send_as": "client",
+     "type": "text"
+    },
+    "envelope": {
+     "enum": [
+      "1",
+      "1.1",
+      "1.2"
+     ],
+     "in": "query",
+     "required": false,
+     "send_as": "envelope",
+     "type": "text"
+    },
+    "factor": {
+     "in": "query",
+     "required": false,
+     "send_as": "factor",
+     "type": "integer"
+    },
+    "gw": {
+     "in": "query",
+     "required": true,
+     "send_as": "gw",
+     "type": "number"
+    },
+    "h": {
+     "in": "query",
+     "required": true,
+     "send_as": "h",
+     "type": "number"
+    },
+    "l": {
+     "in": "query",
+     "required": true,
+     "send_as": "l",
+     "type": "number"
+    },
+    "mode": {
+     "enum": [
+      "air",
+      "sea"
+     ],
+     "in": "query",
+     "required": false,
+     "send_as": "mode",
+     "type": "text"
+    },
+    "pcs": {
+     "in": "query",
+     "required": false,
+     "send_as": "pcs",
+     "type": "integer"
+    },
+    "w": {
+     "in": "query",
+     "required": true,
+     "send_as": "w",
+     "type": "number"
+    }
+   },
+   "method": "GET",
+   "operation": "calculateChargeableWeight",
+   "path": "/api/chargeable-weight"
+  },
+  "calculate_consignment": {
+   "fixed": {},
+   "has_body": true,
+   "inputs": {
+    "as_of": {
+     "in": "body",
+     "pattern": "^\\d{4}-\\d{2}-\\d{2}$",
+     "required": false,
+     "send_as": "as_of",
+     "type": "text"
+    },
+    "client": {
+     "in": "query",
+     "maxLength": 40,
+     "pattern": "^[A-Za-z0-9._-]{1,40}$",
+     "required": false,
+     "send_as": "client",
+     "type": "text"
+    },
+    "consignment": {
+     "in": "body",
+     "required": false,
+     "send_as": "consignment",
+     "type": "object"
+    },
+    "edition": {
+     "enum": [
+      "2025",
+      "2027"
+     ],
+     "in": "body",
+     "required": false,
+     "send_as": "edition",
+     "type": "text"
+    },
+    "envelope": {
+     "enum": [
+      "1",
+      "1.1",
+      "1.2"
+     ],
+     "in": "query",
+     "required": false,
+     "send_as": "envelope",
+     "type": "text"
+    },
+    "if_stale": {
+     "enum": [
+      "refuse"
+     ],
+     "in": "query",
+     "required": false,
+     "send_as": "if_stale",
+     "type": "text"
+    },
+    "items": {
+     "in": "body",
+     "required": false,
+     "send_as": "items",
+     "type": "array"
+    },
+    "lines": {
+     "in": "body",
+     "required": false,
+     "send_as": "lines",
+     "type": "array"
+    },
+    "mode": {
+     "enum": [
+      "road",
+      "air",
+      "sea"
+     ],
+     "in": "body",
+     "required": false,
+     "send_as": "mode",
+     "type": "text"
+    },
+    "options": {
+     "in": "body",
+     "required": false,
+     "send_as": "options",
+     "type": "object"
+    }
+   },
+   "method": "POST",
+   "operation": "calculateConsignment",
+   "path": "/api/consignment"
+  },
+  "calculate_emissions": {
+   "fixed": {},
+   "has_body": false,
+   "inputs": {
+    "basis": {
+     "enum": [
+      "wtw",
+      "ttw"
+     ],
+     "in": "query",
+     "required": false,
+     "send_as": "basis",
+     "type": "text"
+    },
+    "client": {
+     "in": "query",
+     "maxLength": 40,
+     "pattern": "^[A-Za-z0-9._-]{1,40}$",
+     "required": false,
+     "send_as": "client",
+     "type": "text"
+    },
+    "distance_km": {
+     "in": "query",
+     "required": true,
+     "send_as": "distance_km",
+     "type": "number"
+    },
+    "envelope": {
+     "enum": [
+      "1",
+      "1.1",
+      "1.2"
+     ],
+     "in": "query",
+     "required": false,
+     "send_as": "envelope",
+     "type": "text"
+    },
+    "if_stale": {
+     "enum": [
+      "refuse"
+     ],
+     "in": "query",
+     "required": false,
+     "send_as": "if_stale",
+     "type": "text"
+    },
+    "mass": {
+     "in": "query",
+     "required": true,
+     "send_as": "mass",
+     "type": "number"
+    },
+    "mass_unit": {
+     "enum": [
+      "kg",
+      "tonnes"
+     ],
+     "in": "query",
+     "required": false,
+     "send_as": "mass_unit",
+     "type": "text"
+    },
+    "mode": {
+     "enum": [
+      "road",
+      "rail",
+      "sea",
+      "air",
+      "inland_waterway"
+     ],
+     "in": "query",
+     "required": true,
+     "send_as": "mode",
+     "type": "text"
+    },
+    "region": {
+     "enum": [
+      "uk",
+      "us",
+      "fr"
+     ],
+     "in": "query",
+     "required": false,
+     "send_as": "region",
+     "type": "text"
+    },
+    "sub_mode": {
+     "in": "query",
+     "required": false,
+     "send_as": "sub_mode",
+     "type": "text"
+    }
+   },
+   "method": "GET",
+   "operation": "calculateEmissions",
+   "path": "/api/emissions"
+  },
+  "calculate_eu_duty": {
+   "fixed": {},
+   "has_body": true,
+   "inputs": {
+    "as_of": {
+     "in": "body",
+     "pattern": "^\\d{4}-\\d{2}-\\d{2}$",
+     "required": true,
+     "send_as": "as_of",
+     "type": "text"
+    },
+    "code": {
+     "in": "body",
+     "required": true,
+     "send_as": "code",
+     "type": "text"
+    },
+    "currency": {
+     "enum": [
+      "EUR"
+     ],
+     "in": "body",
+     "required": false,
+     "send_as": "currency",
+     "type": "text"
+    },
+    "customs_value": {
+     "exclusiveMinimum": 0,
+     "in": "body",
+     "required": true,
+     "send_as": "customs_value",
+     "type": "number"
+    },
+    "envelope": {
+     "enum": [
+      "1.2"
+     ],
+     "in": "query",
+     "required": false,
+     "send_as": "envelope",
+     "type": "text"
+    },
+    "origin": {
+     "in": "body",
+     "required": true,
+     "send_as": "origin",
+     "type": "text"
+    },
+    "quantities": {
+     "in": "body",
+     "required": false,
+     "send_as": "quantities",
+     "type": "object"
+    }
+   },
+   "method": "POST",
+   "operation": "calculateEuDuty",
+   "path": "/api/eu-duty"
+  },
+  "calculate_loading_metres": {
+   "fixed": {},
+   "has_body": false,
+   "inputs": {
+    "client": {
+     "in": "query",
+     "maxLength": 40,
+     "pattern": "^[A-Za-z0-9._-]{1,40}$",
+     "required": false,
+     "send_as": "client",
+     "type": "text"
+    },
+    "envelope": {
+     "enum": [
+      "1",
+      "1.1",
+      "1.2"
+     ],
+     "in": "query",
+     "required": false,
+     "send_as": "envelope",
+     "type": "text"
+    },
+    "if_stale": {
+     "enum": [
+      "refuse"
+     ],
+     "in": "query",
+     "required": false,
+     "send_as": "if_stale",
+     "type": "text"
+    },
+    "length": {
+     "in": "query",
+     "required": false,
+     "send_as": "length",
+     "type": "number"
+    },
+    "pallet": {
+     "enum": [
+      "euro",
+      "uk",
+      "half",
+      "quarter"
+     ],
+     "in": "query",
+     "required": false,
+     "send_as": "pallet",
+     "type": "text"
+    },
+    "qty": {
+     "in": "query",
+     "required": false,
+     "send_as": "qty",
+     "type": "integer"
+    },
+    "stack": {
+     "enum": [
+      2,
+      3
+     ],
+     "in": "query",
+     "required": false,
+     "send_as": "stack",
+     "type": "integer"
+    },
+    "stackable": {
+     "in": "query",
+     "required": false,
+     "send_as": "stackable",
+     "type": "boolean"
+    },
+    "vehicle": {
+     "enum": [
+      "artic",
+      "rigid10",
+      "rigid75",
+      "luton",
+      "us53",
+      "us48",
+      "custom"
+     ],
+     "in": "query",
+     "required": false,
+     "send_as": "vehicle",
+     "type": "text"
+    },
+    "vehicle_length": {
+     "in": "query",
+     "required": false,
+     "send_as": "vehicle_length",
+     "type": "number"
+    },
+    "weight": {
+     "in": "query",
+     "required": false,
+     "send_as": "weight",
+     "type": "number"
+    },
+    "width": {
+     "in": "query",
+     "required": false,
+     "send_as": "width",
+     "type": "number"
+    }
+   },
+   "method": "GET",
+   "operation": "calculateLdm",
+   "path": "/api/ldm"
+  },
+  "calculate_pallet_fitting": {
+   "fixed": {},
+   "has_body": false,
+   "inputs": {
+    "bh": {
+     "in": "query",
+     "required": true,
+     "send_as": "bh",
+     "type": "number"
+    },
+    "bl": {
+     "in": "query",
+     "required": true,
+     "send_as": "bl",
+     "type": "number"
+    },
+    "bw": {
+     "in": "query",
+     "required": true,
+     "send_as": "bw",
+     "type": "number"
+    },
+    "bwt": {
+     "in": "query",
+     "required": false,
+     "send_as": "bwt",
+     "type": "number"
+    },
+    "client": {
+     "in": "query",
+     "maxLength": 40,
+     "pattern": "^[A-Za-z0-9._-]{1,40}$",
+     "required": false,
+     "send_as": "client",
+     "type": "text"
+    },
+    "envelope": {
+     "enum": [
+      "1",
+      "1.1",
+      "1.2"
+     ],
+     "in": "query",
+     "required": false,
+     "send_as": "envelope",
+     "type": "text"
+    },
+    "mpw": {
+     "in": "query",
+     "required": false,
+     "send_as": "mpw",
+     "type": "number"
+    },
+    "ph": {
+     "in": "query",
+     "required": false,
+     "send_as": "ph",
+     "type": "number"
+    },
+    "pl": {
+     "in": "query",
+     "required": true,
+     "send_as": "pl",
+     "type": "number"
+    },
+    "pmh": {
+     "in": "query",
+     "required": true,
+     "send_as": "pmh",
+     "type": "number"
+    },
+    "pw": {
+     "in": "query",
+     "required": true,
+     "send_as": "pw",
+     "type": "number"
+    },
+    "rotate": {
+     "in": "query",
+     "required": false,
+     "send_as": "rotate",
+     "type": "boolean"
+    }
+   },
+   "method": "GET",
+   "operation": "calculatePalletFitting",
+   "path": "/api/pallet"
+  },
+  "check_adr_2027_changes": {
+   "fixed": {},
+   "has_body": false,
+   "inputs": {
+    "envelope": {
+     "enum": [
+      "1",
+      "1.1",
+      "1.2"
+     ],
+     "in": "query",
+     "required": false,
+     "send_as": "envelope",
+     "type": "text"
+    },
+    "un": {
+     "in": "query",
+     "required": true,
+     "send_as": "un",
+     "type": "text"
+    }
+   },
+   "method": "GET",
+   "operation": "checkAdr2027Changes",
+   "path": "/api/adr/changes-2027"
+  },
+  "check_adr_consignment": {
+   "fixed": {},
+   "has_body": true,
+   "inputs": {
+    "as_of": {
+     "in": "body",
+     "pattern": "^\\d{4}-\\d{2}-\\d{2}$",
+     "required": false,
+     "send_as": "as_of",
+     "type": "text"
+    },
+    "edition": {
+     "enum": [
+      "2025",
+      "2027"
+     ],
+     "in": "body",
+     "required": false,
+     "send_as": "edition",
+     "type": "text"
+    },
+    "envelope": {
+     "enum": [
+      "1.2"
+     ],
+     "in": "query",
+     "required": false,
+     "send_as": "envelope",
+     "type": "text"
+    },
+    "if_stale": {
+     "enum": [
+      "refuse"
+     ],
+     "in": "query",
+     "required": false,
+     "send_as": "if_stale",
+     "type": "text"
+    },
+    "journey": {
+     "in": "body",
+     "required": false,
+     "send_as": "journey",
+     "type": "object"
+    },
+    "lines": {
+     "in": "body",
+     "required": true,
+     "send_as": "lines",
+     "type": "array"
+    },
+    "options": {
+     "in": "body",
+     "required": false,
+     "send_as": "options",
+     "type": "object"
+    },
+    "vehicle": {
+     "in": "body",
+     "required": false,
+     "send_as": "vehicle",
+     "type": "object"
+    }
+   },
+   "method": "POST",
+   "operation": "checkAdrConsignment",
+   "path": "/api/adr/consignment-check"
+  },
+  "check_adr_exemption_for_load": {
+   "fixed": {},
+   "has_body": true,
+   "inputs": {
+    "as_of": {
+     "in": "body",
+     "pattern": "^\\d{4}-\\d{2}-\\d{2}$",
+     "required": false,
+     "send_as": "as_of",
+     "type": "text"
+    },
+    "client": {
+     "in": "query",
+     "maxLength": 40,
+     "pattern": "^[A-Za-z0-9._-]{1,40}$",
+     "required": false,
+     "send_as": "client",
+     "type": "text"
+    },
+    "consignment": {
+     "in": "body",
+     "required": false,
+     "send_as": "consignment",
+     "type": "object"
+    },
+    "edition": {
+     "enum": [
+      "2025",
+      "2027"
+     ],
+     "in": "body",
+     "required": false,
+     "send_as": "edition",
+     "type": "text"
+    },
+    "envelope": {
+     "enum": [
+      "1",
+      "1.1",
+      "1.2"
+     ],
+     "in": "query",
+     "required": false,
+     "send_as": "envelope",
+     "type": "text"
+    },
+    "if_stale": {
+     "enum": [
+      "refuse"
+     ],
+     "in": "query",
+     "required": false,
+     "send_as": "if_stale",
+     "type": "text"
+    },
+    "items": {
+     "in": "body",
+     "required": false,
+     "send_as": "items",
+     "type": "array"
+    }
+   },
+   "method": "POST",
+   "operation": "calculateAdrExemption",
+   "path": "/api/adr-calculator"
+  },
+  "check_adr_exemption_for_substance": {
+   "fixed": {},
+   "has_body": false,
+   "inputs": {
+    "as_of": {
+     "in": "query",
+     "pattern": "^\\d{4}-\\d{2}-\\d{2}$",
+     "required": false,
+     "send_as": "as_of",
+     "type": "text"
+    },
+    "basis": {
+     "enum": [
+      "net",
+      "gross"
+     ],
+     "in": "query",
+     "required": false,
+     "send_as": "basis",
+     "type": "text"
+    },
+    "client": {
+     "in": "query",
+     "maxLength": 40,
+     "pattern": "^[A-Za-z0-9._-]{1,40}$",
+     "required": false,
+     "send_as": "client",
+     "type": "text"
+    },
+    "edition": {
+     "enum": [
+      "2025",
+      "2027"
+     ],
+     "in": "query",
+     "required": false,
+     "send_as": "edition",
+     "type": "text"
+    },
+    "envelope": {
+     "enum": [
+      "1",
+      "1.1",
+      "1.2"
+     ],
+     "in": "query",
+     "required": false,
+     "send_as": "envelope",
+     "type": "text"
+    },
+    "if_stale": {
+     "enum": [
+      "refuse"
+     ],
+     "in": "query",
+     "required": false,
+     "send_as": "if_stale",
+     "type": "text"
+    },
+    "packing_group": {
+     "enum": [
+      "I",
+      "II",
+      "III"
+     ],
+     "in": "query",
+     "required": false,
+     "send_as": "packing_group",
+     "type": "text"
+    },
+    "qty": {
+     "exclusiveMinimum": 0,
+     "in": "query",
+     "maximum": 1000000000,
+     "required": true,
+     "send_as": "qty",
+     "type": "number"
+    },
+    "un": {
+     "in": "query",
+     "required": true,
+     "send_as": "un",
+     "type": "text"
+    },
+    "unit": {
+     "enum": [
+      "L",
+      "kg"
+     ],
+     "in": "query",
+     "required": false,
+     "send_as": "unit",
+     "type": "text"
+    },
+    "variant_index": {
+     "in": "query",
+     "minimum": 0,
+     "required": false,
+     "send_as": "variant_index",
+     "type": "integer"
+    }
+   },
+   "method": "GET",
+   "operation": "calculateAdrExemptionGet",
+   "path": "/api/adr-calculator"
+  },
+  "check_booking": {
+   "fixed": {},
+   "has_body": true,
+   "inputs": {
+    "dangerous_goods": {
+     "in": "body",
+     "required": false,
+     "send_as": "dangerous_goods",
+     "type": "array"
+    },
+    "date": {
+     "in": "body",
+     "pattern": "^\\d{4}-\\d{2}-\\d{2}$",
+     "required": false,
+     "send_as": "date",
+     "type": "text"
+    },
+    "destination": {
+     "in": "body",
+     "required": false,
+     "send_as": "destination",
+     "type": "text"
+    },
+    "detail": {
+     "in": "body",
+     "required": false,
+     "send_as": "detail",
+     "type": "boolean"
+    },
+    "envelope": {
+     "enum": [
+      "1.2"
+     ],
+     "in": "query",
+     "required": false,
+     "send_as": "envelope",
+     "type": "text"
+    },
+    "mode": {
+     "enum": [
+      "road"
+     ],
+     "in": "body",
+     "required": false,
+     "send_as": "mode",
+     "type": "text"
+    },
+    "origin": {
+     "in": "body",
+     "required": false,
+     "send_as": "origin",
+     "type": "text"
+    },
+    "pieces": {
+     "in": "body",
+     "required": false,
+     "send_as": "pieces",
+     "type": "array"
+    },
+    "tunnels_on_route": {
+     "in": "body",
+     "required": false,
+     "send_as": "tunnels_on_route",
+     "type": "array"
+    },
+    "vehicle": {
+     "in": "body",
+     "required": false,
+     "send_as": "vehicle",
+     "type": "text"
+    }
+   },
+   "method": "POST",
+   "operation": "checkBooking",
+   "path": "/api/booking-check"
+  },
+  "check_ics2_description": {
+   "fixed": {},
+   "has_body": false,
+   "inputs": {
+    "client": {
+     "in": "query",
+     "maxLength": 40,
+     "pattern": "^[A-Za-z0-9._-]{1,40}$",
+     "required": false,
+     "send_as": "client",
+     "type": "text"
+    },
+    "description": {
+     "in": "query",
+     "required": true,
+     "send_as": "description",
+     "type": "text"
+    },
+    "envelope": {
+     "enum": [
+      "1",
+      "1.1",
+      "1.2"
+     ],
+     "in": "query",
+     "required": false,
+     "send_as": "envelope",
+     "type": "text"
+    },
+    "if_stale": {
+     "enum": [
+      "refuse"
+     ],
+     "in": "query",
+     "required": false,
+     "send_as": "if_stale",
+     "type": "text"
+    }
+   },
+   "method": "GET",
+   "operation": "checkIcs2StopWords",
+   "path": "/api/ics2-check"
+  },
+  "check_limited_quantities": {
+   "fixed": {},
+   "has_body": true,
+   "inputs": {
+    "as_of": {
+     "in": "body",
+     "pattern": "^\\d{4}-\\d{2}-\\d{2}$",
+     "required": false,
+     "send_as": "as_of",
+     "type": "text"
+    },
+    "client": {
+     "in": "query",
+     "maxLength": 40,
+     "pattern": "^[A-Za-z0-9._-]{1,40}$",
+     "required": false,
+     "send_as": "client",
+     "type": "text"
+    },
+    "edition": {
+     "enum": [
+      "2025",
+      "2027"
+     ],
+     "in": "body",
+     "required": false,
+     "send_as": "edition",
+     "type": "text"
+    },
+    "envelope": {
+     "enum": [
+      "1",
+      "1.1",
+      "1.2"
+     ],
+     "in": "query",
+     "required": false,
+     "send_as": "envelope",
+     "type": "text"
+    },
+    "if_stale": {
+     "enum": [
+      "refuse"
+     ],
+     "in": "query",
+     "required": false,
+     "send_as": "if_stale",
+     "type": "text"
+    },
+    "items": {
+     "in": "body",
+     "required": true,
+     "send_as": "items",
+     "type": "array"
+    },
+    "mode": {
+     "enum": [
+      "lq",
+      "eq"
+     ],
+     "in": "body",
+     "required": false,
+     "send_as": "mode",
+     "type": "text"
+    }
+   },
+   "method": "POST",
+   "operation": "checkLqEq",
+   "path": "/api/adr/lq-check"
+  },
+  "convert_units": {
+   "fixed": {},
+   "has_body": false,
+   "inputs": {
+    "client": {
+     "in": "query",
+     "maxLength": 40,
+     "pattern": "^[A-Za-z0-9._-]{1,40}$",
+     "required": false,
+     "send_as": "client",
+     "type": "text"
+    },
+    "envelope": {
+     "enum": [
+      "1",
+      "1.1",
+      "1.2"
+     ],
+     "in": "query",
+     "required": false,
+     "send_as": "envelope",
+     "type": "text"
+    },
+    "from": {
+     "enum": [
+      "kg",
+      "lbs",
+      "oz",
+      "tonnes",
+      "short_tons",
+      "long_tons",
+      "cbm",
+      "cuft",
+      "cuin",
+      "litres",
+      "gal_us",
+      "gal_uk",
+      "cm",
+      "inches",
+      "m",
+      "feet",
+      "mm"
+     ],
+     "in": "query",
+     "required": true,
+     "send_as": "from",
+     "type": "text"
+    },
+    "to": {
+     "enum": [
+      "kg",
+      "lbs",
+      "oz",
+      "tonnes",
+      "short_tons",
+      "long_tons",
+      "cbm",
+      "cuft",
+      "cuin",
+      "litres",
+      "gal_us",
+      "gal_uk",
+      "cm",
+      "inches",
+      "m",
+      "feet",
+      "mm",
+      "chargeable_kg",
+      "freight_tonnes"
+     ],
+     "in": "query",
+     "required": true,
+     "send_as": "to",
+     "type": "text"
+    },
+    "value": {
+     "in": "query",
+     "required": true,
+     "send_as": "value",
+     "type": "number"
+    }
+   },
+   "method": "GET",
+   "operation": "convertUnits",
+   "path": "/api/convert"
+  },
+  "estimate_uk_duty": {
+   "fixed": {},
+   "has_body": true,
+   "inputs": {
+    "client": {
+     "in": "query",
+     "maxLength": 40,
+     "pattern": "^[A-Za-z0-9._-]{1,40}$",
+     "required": false,
+     "send_as": "client",
+     "type": "text"
+    },
+    "commodity_code": {
+     "in": "body",
+     "pattern": "^(?:\\s*\\d){6,10}\\s*$",
+     "required": false,
+     "send_as": "commodity_code",
+     "type": "text"
+    },
+    "customs_value": {
+     "in": "body",
+     "required": false,
+     "send_as": "customs_value",
+     "type": "number"
+    },
+    "envelope": {
+     "enum": [
+      "1",
+      "1.1",
+      "1.2"
+     ],
+     "in": "query",
+     "required": false,
+     "send_as": "envelope",
+     "type": "text"
+    },
+    "freight_cost": {
+     "in": "body",
+     "minimum": 0,
+     "required": false,
+     "send_as": "freight_cost",
+     "type": "number"
+    },
+    "if_stale": {
+     "enum": [
+      "refuse"
+     ],
+     "in": "query",
+     "required": false,
+     "send_as": "if_stale",
+     "type": "text"
+    },
+    "incoterm": {
+     "in": "body",
+     "required": false,
+     "send_as": "incoterm",
+     "type": "text"
+    },
+    "insurance_cost": {
+     "in": "body",
+     "minimum": 0,
+     "required": false,
+     "send_as": "insurance_cost",
+     "type": "number"
+    },
+    "lines": {
+     "in": "body",
+     "required": false,
+     "send_as": "lines",
+     "type": "array"
+    },
+    "origin_country": {
+     "in": "body",
+     "required": false,
+     "send_as": "origin_country",
+     "type": "text"
+    }
+   },
+   "method": "POST",
+   "operation": "estimateDuty",
+   "path": "/api/duty"
+  },
+  "find_nearest_airports": {
+   "fixed": {},
+   "has_body": false,
+   "inputs": {
+    "client": {
+     "in": "query",
+     "maxLength": 40,
+     "pattern": "^[A-Za-z0-9._-]{1,40}$",
+     "required": false,
+     "send_as": "client",
+     "type": "text"
+    },
+    "envelope": {
+     "enum": [
+      "1",
+      "1.1",
+      "1.2"
+     ],
+     "in": "query",
+     "required": false,
+     "send_as": "envelope",
+     "type": "text"
+    },
+    "if_stale": {
+     "enum": [
+      "refuse"
+     ],
+     "in": "query",
+     "required": false,
+     "send_as": "if_stale",
+     "type": "text"
+    },
+    "include_all": {
+     "in": "query",
+     "required": false,
+     "send_as": "include_all",
+     "type": "boolean"
+    },
+    "lat": {
+     "in": "query",
+     "required": true,
+     "send_as": "lat",
+     "type": "number"
+    },
+    "lon": {
+     "in": "query",
+     "required": true,
+     "send_as": "lon",
+     "type": "number"
+    },
+    "max_results": {
+     "in": "query",
+     "required": false,
+     "send_as": "max_results",
+     "type": "integer"
+    },
+    "radius_km": {
+     "in": "query",
+     "required": false,
+     "send_as": "radius_km",
+     "type": "number"
+    },
+    "type": {
+     "enum": [
+      "large_airport",
+      "medium_airport",
+      "small_airport",
+      "heliport",
+      "closed",
+      "seaplane_base"
+     ],
+     "in": "query",
+     "required": false,
+     "send_as": "type",
+     "type": "text"
+    }
+   },
+   "method": "GET",
+   "operation": "nearestAirport",
+   "path": "/api/nearest-airport"
+  },
+  "get_adr_code": {
+   "fixed": {},
+   "has_body": false,
+   "inputs": {
+    "client": {
+     "in": "query",
+     "maxLength": 40,
+     "pattern": "^[A-Za-z0-9._-]{1,40}$",
+     "required": false,
+     "send_as": "client",
+     "type": "text"
+    },
+    "code": {
+     "in": "path",
+     "required": true,
+     "send_as": "code",
+     "type": "text"
+    },
+    "envelope": {
+     "enum": [
+      "1",
+      "1.1",
+      "1.2"
+     ],
+     "in": "query",
+     "required": false,
+     "send_as": "envelope",
+     "type": "text"
+    },
+    "family": {
+     "enum": [
+      "sp",
+      "pi",
+      "spp",
+      "mp",
+      "t",
+      "bk",
+      "tp",
+      "tank_code",
+      "tsp",
+      "v",
+      "vc",
+      "ap",
+      "cv",
+      "s",
+      "label",
+      "vehicle",
+      "hin"
+     ],
+     "in": "path",
+     "required": true,
+     "send_as": "family",
+     "type": "text"
+    },
+    "if_stale": {
+     "enum": [
+      "refuse"
+     ],
+     "in": "query",
+     "required": false,
+     "send_as": "if_stale",
+     "type": "text"
+    }
+   },
+   "method": "GET",
+   "operation": "getAdrCode",
+   "path": "/api/adr/codes/{family}/{code}"
+  },
+  "get_check_receipt": {
+   "fixed": {},
+   "has_body": false,
+   "inputs": {
+    "check_id": {
+     "in": "path",
+     "pattern": "^chk_[A-Za-z0-9_-]{22}$",
+     "required": true,
+     "send_as": "check_id",
+     "type": "text"
+    },
+    "client": {
+     "in": "query",
+     "maxLength": 40,
+     "pattern": "^[A-Za-z0-9._-]{1,40}$",
+     "required": false,
+     "send_as": "client",
+     "type": "text"
+    },
+    "envelope": {
+     "enum": [
+      "1",
+      "1.1",
+      "1.2"
+     ],
+     "in": "query",
+     "required": false,
+     "send_as": "envelope",
+     "type": "text"
+    },
+    "format": {
+     "enum": [
+      "json",
+      "text"
+     ],
+     "in": "query",
+     "required": false,
+     "send_as": "format",
+     "type": "text"
+    }
+   },
+   "method": "GET",
+   "operation": "getCheckReceipt",
+   "path": "/api/receipts/{check_id}"
+  },
+  "get_data_coverage": {
+   "fixed": {},
+   "has_body": false,
+   "inputs": {
+    "envelope": {
+     "enum": [
+      "1",
+      "1.1",
+      "1.2"
+     ],
+     "in": "query",
+     "required": false,
+     "send_as": "envelope",
+     "type": "text"
+    }
+   },
+   "method": "GET",
+   "operation": "getCoverageMatrix",
+   "path": "/api/coverage"
+  },
+  "get_data_licensing": {
+   "fixed": {},
+   "has_body": false,
+   "inputs": {
+    "envelope": {
+     "enum": [
+      "1",
+      "1.1",
+      "1.2"
+     ],
+     "in": "query",
+     "required": false,
+     "send_as": "envelope",
+     "type": "text"
+    }
+   },
+   "method": "GET",
+   "operation": "getDataLicensing",
+   "path": "/api/data-licensing"
+  },
+  "list_adr_codes": {
+   "fixed": {},
+   "has_body": false,
+   "inputs": {
+    "client": {
+     "in": "query",
+     "maxLength": 40,
+     "pattern": "^[A-Za-z0-9._-]{1,40}$",
+     "required": false,
+     "send_as": "client",
+     "type": "text"
+    },
+    "envelope": {
+     "enum": [
+      "1",
+      "1.1",
+      "1.2"
+     ],
+     "in": "query",
+     "required": false,
+     "send_as": "envelope",
+     "type": "text"
+    },
+    "family": {
+     "enum": [
+      "sp",
+      "pi",
+      "spp",
+      "mp",
+      "t",
+      "bk",
+      "tp",
+      "tank_code",
+      "tsp",
+      "v",
+      "vc",
+      "ap",
+      "cv",
+      "s",
+      "label",
+      "vehicle",
+      "hin"
+     ],
+     "in": "query",
+     "required": false,
+     "send_as": "family",
+     "type": "text"
+    },
+    "if_stale": {
+     "enum": [
+      "refuse"
+     ],
+     "in": "query",
+     "required": false,
+     "send_as": "if_stale",
+     "type": "text"
+    },
+    "page": {
+     "in": "query",
+     "minimum": 1,
+     "required": false,
+     "send_as": "page",
+     "type": "integer"
+    }
+   },
+   "method": "GET",
+   "operation": "listAdrCodes",
+   "path": "/api/adr/codes"
+  },
+  "list_code_lists": {
+   "fixed": {},
+   "has_body": false,
+   "inputs": {
+    "client": {
+     "in": "query",
+     "maxLength": 40,
+     "pattern": "^[A-Za-z0-9._-]{1,40}$",
+     "required": false,
+     "send_as": "client",
+     "type": "text"
+    },
+    "envelope": {
+     "enum": [
+      "1",
+      "1.1",
+      "1.2"
+     ],
+     "in": "query",
+     "required": false,
+     "send_as": "envelope",
+     "type": "text"
+    }
+   },
+   "method": "GET",
+   "operation": "listCodeLists",
+   "path": "/api/codes"
+  },
+  "list_data_changes": {
+   "fixed": {},
+   "has_body": false,
+   "inputs": {
+    "cursor": {
+     "in": "query",
+     "pattern": "^r\\d{1,6}\\.\\d{1,7}$",
+     "required": false,
+     "send_as": "cursor",
+     "type": "text"
+    },
+    "envelope": {
+     "enum": [
+      "1",
+      "1.1",
+      "1.2"
+     ],
+     "in": "query",
+     "required": false,
+     "send_as": "envelope",
+     "type": "text"
+    },
+    "format": {
+     "enum": [
+      "json",
+      "rss"
+     ],
+     "in": "query",
+     "required": false,
+     "send_as": "format",
+     "type": "text"
+    },
+    "limit": {
+     "in": "query",
+     "maximum": 1000,
+     "minimum": 1,
+     "required": false,
+     "send_as": "limit",
+     "type": "integer"
+    },
+    "since": {
+     "in": "query",
+     "required": false,
+     "send_as": "since",
+     "type": "text"
+    }
+   },
+   "method": "GET",
+   "operation": "getChanges",
+   "path": "/api/changes"
+  },
+  "look_up_airlines": {
+   "fixed": {},
+   "has_body": false,
+   "inputs": {
+    "client": {
+     "in": "query",
+     "maxLength": 40,
+     "pattern": "^[A-Za-z0-9._-]{1,40}$",
+     "required": false,
+     "send_as": "client",
+     "type": "text"
+    },
+    "codes": {
+     "in": "query",
+     "required": false,
+     "send_as": "codes",
+     "type": "text"
+    },
+    "country": {
+     "in": "query",
+     "required": false,
+     "send_as": "country",
+     "type": "text"
+    },
+    "envelope": {
+     "enum": [
+      "1",
+      "1.1",
+      "1.2"
+     ],
+     "in": "query",
+     "required": false,
+     "send_as": "envelope",
+     "type": "text"
+    },
+    "iata": {
+     "in": "query",
+     "required": false,
+     "send_as": "iata",
+     "type": "text"
+    },
+    "icao": {
+     "in": "query",
+     "required": false,
+     "send_as": "icao",
+     "type": "text"
+    },
+    "if_stale": {
+     "enum": [
+      "refuse"
+     ],
+     "in": "query",
+     "required": false,
+     "send_as": "if_stale",
+     "type": "text"
+    },
+    "limit": {
+     "in": "query",
+     "maximum": 100,
+     "minimum": 1,
+     "required": false,
+     "send_as": "limit",
+     "type": "integer"
+    },
+    "offset": {
+     "in": "query",
+     "minimum": 0,
+     "required": false,
+     "send_as": "offset",
+     "type": "integer"
+    },
+    "prefix": {
+     "in": "query",
+     "required": false,
+     "send_as": "prefix",
+     "type": "text"
+    },
+    "q": {
+     "in": "query",
+     "maxLength": 200,
+     "required": false,
+     "send_as": "q",
+     "type": "text"
+    },
+    "slug": {
+     "in": "query",
+     "pattern": "^[a-z0-9][a-z0-9-]{0,99}$",
+     "required": false,
+     "send_as": "slug",
+     "type": "text"
+    },
+    "view": {
+     "enum": [
+      "summary"
+     ],
+     "in": "query",
+     "required": false,
+     "send_as": "view",
+     "type": "text"
+    }
+   },
+   "method": "GET",
+   "operation": "searchAirlines",
+   "path": "/api/airlines"
+  },
+  "look_up_airports": {
+   "fixed": {},
+   "has_body": false,
+   "inputs": {
+    "client": {
+     "in": "query",
+     "maxLength": 40,
+     "pattern": "^[A-Za-z0-9._-]{1,40}$",
+     "required": false,
+     "send_as": "client",
+     "type": "text"
+    },
+    "codes": {
+     "in": "query",
+     "required": false,
+     "send_as": "codes",
+     "type": "text"
+    },
+    "envelope": {
+     "enum": [
+      "1",
+      "1.1",
+      "1.2"
+     ],
+     "in": "query",
+     "required": false,
+     "send_as": "envelope",
+     "type": "text"
+    },
+    "iata": {
+     "in": "query",
+     "required": false,
+     "send_as": "iata",
+     "type": "text"
+    },
+    "icao": {
+     "in": "query",
+     "required": false,
+     "send_as": "icao",
+     "type": "text"
+    },
+    "ident": {
+     "in": "query",
+     "pattern": "^[A-Za-z0-9-]{1,12}$",
+     "required": false,
+     "send_as": "ident",
+     "type": "text"
+    },
+    "if_stale": {
+     "enum": [
+      "refuse"
+     ],
+     "in": "query",
+     "required": false,
+     "send_as": "if_stale",
+     "type": "text"
+    },
+    "q": {
+     "in": "query",
+     "maxLength": 200,
+     "required": false,
+     "send_as": "q",
+     "type": "text"
+    },
+    "type": {
+     "enum": [
+      "large_airport",
+      "medium_airport",
+      "small_airport",
+      "heliport",
+      "closed",
+      "seaplane_base"
+     ],
+     "in": "query",
+     "required": false,
+     "send_as": "type",
+     "type": "text"
+    }
+   },
+   "method": "GET",
+   "operation": "lookupAirport",
+   "path": "/api/airports"
+  },
+  "look_up_code_list": {
+   "fixed": {},
+   "has_body": false,
+   "inputs": {
+    "client": {
+     "in": "query",
+     "maxLength": 40,
+     "pattern": "^[A-Za-z0-9._-]{1,40}$",
+     "required": false,
+     "send_as": "client",
+     "type": "text"
+    },
+    "code": {
+     "in": "query",
+     "required": false,
+     "send_as": "code",
+     "type": "text"
+    },
+    "envelope": {
+     "enum": [
+      "1",
+      "1.1",
+      "1.2"
+     ],
+     "in": "query",
+     "required": false,
+     "send_as": "envelope",
+     "type": "text"
+    },
+    "full": {
+     "in": "query",
+     "required": false,
+     "send_as": "full",
+     "type": "boolean"
+    },
+    "include_deprecated": {
+     "in": "query",
+     "required": false,
+     "send_as": "include_deprecated",
+     "type": "boolean"
+    },
+    "limit": {
+     "in": "query",
+     "maximum": 200,
+     "minimum": 1,
+     "required": false,
+     "send_as": "limit",
+     "type": "integer"
+    },
+    "list": {
+     "in": "path",
+     "required": true,
+     "send_as": "list",
+     "type": "text"
+    },
+    "offset": {
+     "in": "query",
+     "minimum": 0,
+     "required": false,
+     "send_as": "offset",
+     "type": "integer"
+    },
+    "q": {
+     "in": "query",
+     "maxLength": 100,
+     "minLength": 1,
+     "required": false,
+     "send_as": "q",
+     "type": "text"
+    }
+   },
+   "method": "GET",
+   "operation": "lookupCodeList",
+   "path": "/api/codes/{list}"
+  },
+  "look_up_containers": {
+   "fixed": {},
+   "has_body": false,
+   "inputs": {
+    "client": {
+     "in": "query",
+     "maxLength": 40,
+     "pattern": "^[A-Za-z0-9._-]{1,40}$",
+     "required": false,
+     "send_as": "client",
+     "type": "text"
+    },
+    "envelope": {
+     "enum": [
+      "1",
+      "1.1",
+      "1.2"
+     ],
+     "in": "query",
+     "required": false,
+     "send_as": "envelope",
+     "type": "text"
+    },
+    "h": {
+     "in": "query",
+     "required": false,
+     "send_as": "h",
+     "type": "number"
+    },
+    "if_stale": {
+     "enum": [
+      "refuse"
+     ],
+     "in": "query",
+     "required": false,
+     "send_as": "if_stale",
+     "type": "text"
+    },
+    "l": {
+     "in": "query",
+     "required": false,
+     "send_as": "l",
+     "type": "number"
+    },
+    "limit": {
+     "in": "query",
+     "maximum": 100,
+     "minimum": 1,
+     "required": false,
+     "send_as": "limit",
+     "type": "integer"
+    },
+    "offset": {
+     "in": "query",
+     "minimum": 0,
+     "required": false,
+     "send_as": "offset",
+     "type": "integer"
+    },
+    "qty": {
+     "in": "query",
+     "required": false,
+     "send_as": "qty",
+     "type": "integer"
+    },
+    "type": {
+     "enum": [
+      "20ft-standard",
+      "40ft-standard",
+      "20ft-high-cube",
+      "40ft-high-cube",
+      "20ft-open-top",
+      "40ft-open-top",
+      "20ft-flat-rack",
+      "40ft-flat-rack",
+      "20ft-reefer",
+      "40ft-reefer"
+     ],
+     "in": "query",
+     "required": false,
+     "send_as": "type",
+     "type": "text"
+    },
+    "view": {
+     "enum": [
+      "summary"
+     ],
+     "in": "query",
+     "required": false,
+     "send_as": "view",
+     "type": "text"
+    },
+    "w": {
+     "in": "query",
+     "required": false,
+     "send_as": "w",
+     "type": "number"
+    },
+    "wt": {
+     "in": "query",
+     "required": false,
+     "send_as": "wt",
+     "type": "number"
+    }
+   },
+   "method": "GET",
+   "operation": "getContainers",
+   "path": "/api/containers"
+  },
+  "look_up_dangerous_goods": {
+   "fixed": {},
+   "has_body": false,
+   "inputs": {
+    "as_of": {
+     "in": "query",
+     "pattern": "^\\d{4}-\\d{2}-\\d{2}$",
+     "required": false,
+     "send_as": "as_of",
+     "type": "text"
+    },
+    "class": {
+     "in": "query",
+     "required": false,
+     "send_as": "class",
+     "type": "text"
+    },
+    "client": {
+     "in": "query",
+     "maxLength": 40,
+     "pattern": "^[A-Za-z0-9._-]{1,40}$",
+     "required": false,
+     "send_as": "client",
+     "type": "text"
+    },
+    "edition": {
+     "enum": [
+      "2025",
+      "2027"
+     ],
+     "in": "query",
+     "required": false,
+     "send_as": "edition",
+     "type": "text"
+    },
+    "envelope": {
+     "enum": [
+      "1",
+      "1.1",
+      "1.2"
+     ],
+     "in": "query",
+     "required": false,
+     "send_as": "envelope",
+     "type": "text"
+    },
+    "if_stale": {
+     "enum": [
+      "refuse"
+     ],
+     "in": "query",
+     "required": false,
+     "send_as": "if_stale",
+     "type": "text"
+    },
+    "include": {
+     "enum": [
+      "statements"
+     ],
+     "in": "query",
+     "required": false,
+     "send_as": "include",
+     "type": "text"
+    },
+    "include_codes": {
+     "enum": [
+      "none",
+      "compact",
+      "full"
+     ],
+     "in": "query",
+     "required": false,
+     "send_as": "include_codes",
+     "type": "text"
+    },
+    "limit": {
+     "in": "query",
+     "maximum": 100,
+     "minimum": 1,
+     "required": false,
+     "send_as": "limit",
+     "type": "integer"
+    },
+    "offset": {
+     "in": "query",
+     "minimum": 0,
+     "required": false,
+     "send_as": "offset",
+     "type": "integer"
+    },
+    "q": {
+     "in": "query",
+     "maxLength": 200,
+     "required": false,
+     "send_as": "q",
+     "type": "text"
+    },
+    "search": {
+     "in": "query",
+     "maxLength": 200,
+     "required": false,
+     "send_as": "search",
+     "type": "text"
+    },
+    "un": {
+     "in": "query",
+     "required": false,
+     "send_as": "un",
+     "type": "text"
+    },
+    "un_numbers": {
+     "in": "query",
+     "required": false,
+     "send_as": "un_numbers",
+     "type": "text"
+    }
+   },
+   "method": "GET",
+   "operation": "lookupAdr",
+   "path": "/api/adr"
+  },
+  "look_up_eu_tariff": {
+   "fixed": {},
+   "has_body": false,
+   "inputs": {
+    "as_of": {
+     "in": "query",
+     "pattern": "^\\d{4}-\\d{2}-\\d{2}$",
+     "required": true,
+     "send_as": "as_of",
+     "type": "text"
+    },
+    "code": {
+     "in": "query",
+     "required": true,
+     "send_as": "code",
+     "type": "text"
+    },
+    "direction": {
+     "enum": [
+      "import",
+      "export"
+     ],
+     "in": "query",
+     "required": false,
+     "send_as": "direction",
+     "type": "text"
+    },
+    "envelope": {
+     "enum": [
+      "1.2"
+     ],
+     "in": "query",
+     "required": false,
+     "send_as": "envelope",
+     "type": "text"
+    },
+    "origin": {
+     "in": "query",
+     "required": false,
+     "send_as": "origin",
+     "type": "text"
+    }
+   },
+   "method": "GET",
+   "operation": "lookupEuTariff",
+   "path": "/api/eu-tariff"
+  },
+  "look_up_hs_code": {
+   "fixed": {},
+   "has_body": false,
+   "inputs": {
+    "code": {
+     "in": "query",
+     "required": true,
+     "send_as": "code",
+     "type": "text"
+    }
+   },
+   "method": "GET",
+   "operation": "lookupHsCodes",
+   "path": "/api/hs"
+  },
+  "look_up_hs_codes": {
+   "fixed": {},
+   "has_body": false,
+   "inputs": {
+    "client": {
+     "in": "query",
+     "maxLength": 40,
+     "pattern": "^[A-Za-z0-9._-]{1,40}$",
+     "required": false,
+     "send_as": "client",
+     "type": "text"
+    },
+    "code": {
+     "in": "query",
+     "required": false,
+     "send_as": "code",
+     "type": "text"
+    },
+    "codes": {
+     "in": "query",
+     "required": false,
+     "send_as": "codes",
+     "type": "text"
+    },
+    "envelope": {
+     "enum": [
+      "1",
+      "1.1",
+      "1.2"
+     ],
+     "in": "query",
+     "required": false,
+     "send_as": "envelope",
+     "type": "text"
+    },
+    "if_stale": {
+     "enum": [
+      "refuse"
+     ],
+     "in": "query",
+     "required": false,
+     "send_as": "if_stale",
+     "type": "text"
+    },
+    "q": {
+     "in": "query",
+     "required": false,
+     "send_as": "q",
+     "type": "text"
+    },
+    "section": {
+     "in": "query",
+     "required": false,
+     "send_as": "section",
+     "type": "text"
+    }
+   },
+   "method": "GET",
+   "operation": "lookupHsCodes",
+   "path": "/api/hs"
+  },
+  "look_up_incoterms": {
+   "fixed": {},
+   "has_body": false,
+   "inputs": {
+    "category": {
+     "enum": [
+      "any_mode",
+      "sea_only"
+     ],
+     "in": "query",
+     "required": false,
+     "send_as": "category",
+     "type": "text"
+    },
+    "client": {
+     "in": "query",
+     "maxLength": 40,
+     "pattern": "^[A-Za-z0-9._-]{1,40}$",
+     "required": false,
+     "send_as": "client",
+     "type": "text"
+    },
+    "code": {
+     "in": "query",
+     "required": false,
+     "send_as": "code",
+     "type": "text"
+    },
+    "envelope": {
+     "enum": [
+      "1",
+      "1.1",
+      "1.2"
+     ],
+     "in": "query",
+     "required": false,
+     "send_as": "envelope",
+     "type": "text"
+    },
+    "if_stale": {
+     "enum": [
+      "refuse"
+     ],
+     "in": "query",
+     "required": false,
+     "send_as": "if_stale",
+     "type": "text"
+    },
+    "limit": {
+     "in": "query",
+     "maximum": 100,
+     "minimum": 1,
+     "required": false,
+     "send_as": "limit",
+     "type": "integer"
+    },
+    "offset": {
+     "in": "query",
+     "minimum": 0,
+     "required": false,
+     "send_as": "offset",
+     "type": "integer"
+    },
+    "view": {
+     "enum": [
+      "summary"
+     ],
+     "in": "query",
+     "required": false,
+     "send_as": "view",
+     "type": "text"
+    }
+   },
+   "method": "GET",
+   "operation": "lookupIncoterms",
+   "path": "/api/incoterms"
+  },
+  "look_up_location_code": {
+   "fixed": {},
+   "has_body": false,
+   "inputs": {
+    "code": {
+     "in": "query",
+     "required": true,
+     "send_as": "code",
+     "type": "text"
+    }
+   },
+   "method": "GET",
+   "operation": "searchUnlocode",
+   "path": "/api/unlocode"
+  },
+  "look_up_locations": {
+   "fixed": {},
+   "has_body": false,
+   "inputs": {
+    "client": {
+     "in": "query",
+     "maxLength": 40,
+     "pattern": "^[A-Za-z0-9._-]{1,40}$",
+     "required": false,
+     "send_as": "client",
+     "type": "text"
+    },
+    "code": {
+     "in": "query",
+     "required": false,
+     "send_as": "code",
+     "type": "text"
+    },
+    "codes": {
+     "in": "query",
+     "required": false,
+     "send_as": "codes",
+     "type": "text"
+    },
+    "country": {
+     "in": "query",
+     "required": false,
+     "send_as": "country",
+     "type": "text"
+    },
+    "envelope": {
+     "enum": [
+      "1",
+      "1.1",
+      "1.2"
+     ],
+     "in": "query",
+     "required": false,
+     "send_as": "envelope",
+     "type": "text"
+    },
+    "function": {
+     "enum": [
+      "port",
+      "airport",
+      "rail",
+      "road",
+      "icd",
+      "border"
+     ],
+     "in": "query",
+     "required": false,
+     "send_as": "function",
+     "type": "text"
+    },
+    "if_stale": {
+     "enum": [
+      "refuse"
+     ],
+     "in": "query",
+     "required": false,
+     "send_as": "if_stale",
+     "type": "text"
+    },
+    "limit": {
+     "in": "query",
+     "required": false,
+     "send_as": "limit",
+     "type": "integer"
+    },
+    "q": {
+     "in": "query",
+     "required": false,
+     "send_as": "q",
+     "type": "text"
+    }
+   },
+   "method": "GET",
+   "operation": "searchUnlocode",
+   "path": "/api/unlocode"
+  },
+  "look_up_ulds": {
+   "fixed": {},
+   "has_body": false,
+   "inputs": {
+    "category": {
+     "enum": [
+      "container",
+      "pallet",
+      "special"
+     ],
+     "in": "query",
+     "required": false,
+     "send_as": "category",
+     "type": "text"
+    },
+    "client": {
+     "in": "query",
+     "maxLength": 40,
+     "pattern": "^[A-Za-z0-9._-]{1,40}$",
+     "required": false,
+     "send_as": "client",
+     "type": "text"
+    },
+    "code": {
+     "in": "query",
+     "required": false,
+     "send_as": "code",
+     "type": "text"
+    },
+    "deck": {
+     "enum": [
+      "lower",
+      "main"
+     ],
+     "in": "query",
+     "required": false,
+     "send_as": "deck",
+     "type": "text"
+    },
+    "envelope": {
+     "enum": [
+      "1",
+      "1.1",
+      "1.2"
+     ],
+     "in": "query",
+     "required": false,
+     "send_as": "envelope",
+     "type": "text"
+    },
+    "if_stale": {
+     "enum": [
+      "refuse"
+     ],
+     "in": "query",
+     "required": false,
+     "send_as": "if_stale",
+     "type": "text"
+    },
+    "limit": {
+     "in": "query",
+     "maximum": 100,
+     "minimum": 1,
+     "required": false,
+     "send_as": "limit",
+     "type": "integer"
+    },
+    "offset": {
+     "in": "query",
+     "minimum": 0,
+     "required": false,
+     "send_as": "offset",
+     "type": "integer"
+    },
+    "type": {
+     "in": "query",
+     "required": false,
+     "send_as": "type",
+     "type": "text"
+    },
+    "view": {
+     "enum": [
+      "summary"
+     ],
+     "in": "query",
+     "required": false,
+     "send_as": "view",
+     "type": "text"
+    }
+   },
+   "method": "GET",
+   "operation": "getULDs",
+   "path": "/api/uld"
+  },
+  "look_up_un_number": {
+   "fixed": {},
+   "has_body": false,
+   "inputs": {
+    "as_of": {
+     "in": "query",
+     "pattern": "^\\d{4}-\\d{2}-\\d{2}$",
+     "required": false,
+     "send_as": "as_of",
+     "type": "text"
+    },
+    "edition": {
+     "enum": [
+      "2025",
+      "2027"
+     ],
+     "in": "query",
+     "required": false,
+     "send_as": "edition",
+     "type": "text"
+    },
+    "un": {
+     "in": "query",
+     "required": true,
+     "send_as": "un",
+     "type": "text"
+    }
+   },
+   "method": "GET",
+   "operation": "lookupAdr",
+   "path": "/api/adr"
+  },
+  "look_up_vehicles": {
+   "fixed": {},
+   "has_body": false,
+   "inputs": {
+    "category": {
+     "enum": [
+      "articulated",
+      "rigid",
+      "van"
+     ],
+     "in": "query",
+     "required": false,
+     "send_as": "category",
+     "type": "text"
+    },
+    "client": {
+     "in": "query",
+     "maxLength": 40,
+     "pattern": "^[A-Za-z0-9._-]{1,40}$",
+     "required": false,
+     "send_as": "client",
+     "type": "text"
+    },
+    "envelope": {
+     "enum": [
+      "1",
+      "1.1",
+      "1.2"
+     ],
+     "in": "query",
+     "required": false,
+     "send_as": "envelope",
+     "type": "text"
+    },
+    "if_stale": {
+     "enum": [
+      "refuse"
+     ],
+     "in": "query",
+     "required": false,
+     "send_as": "if_stale",
+     "type": "text"
+    },
+    "limit": {
+     "in": "query",
+     "maximum": 100,
+     "minimum": 1,
+     "required": false,
+     "send_as": "limit",
+     "type": "integer"
+    },
+    "offset": {
+     "in": "query",
+     "minimum": 0,
+     "required": false,
+     "send_as": "offset",
+     "type": "integer"
+    },
+    "region": {
+     "enum": [
+      "EU",
+      "US"
+     ],
+     "in": "query",
+     "required": false,
+     "send_as": "region",
+     "type": "text"
+    },
+    "slug": {
+     "in": "query",
+     "required": false,
+     "send_as": "slug",
+     "type": "text"
+    },
+    "view": {
+     "enum": [
+      "summary"
+     ],
+     "in": "query",
+     "required": false,
+     "send_as": "view",
+     "type": "text"
+    }
+   },
+   "method": "GET",
+   "operation": "getVehicles",
+   "path": "/api/vehicles"
+  },
+  "resolve_reference": {
+   "fixed": {},
+   "has_body": false,
+   "inputs": {
+    "client": {
+     "in": "query",
+     "maxLength": 40,
+     "pattern": "^[A-Za-z0-9._-]{1,40}$",
+     "required": false,
+     "send_as": "client",
+     "type": "text"
+    },
+    "envelope": {
+     "enum": [
+      "1",
+      "1.1",
+      "1.2"
+     ],
+     "in": "query",
+     "required": false,
+     "send_as": "envelope",
+     "type": "text"
+    },
+    "if_stale": {
+     "enum": [
+      "refuse"
+     ],
+     "in": "query",
+     "required": false,
+     "send_as": "if_stale",
+     "type": "text"
+    },
+    "q": {
+     "in": "query",
+     "maxLength": 200,
+     "required": true,
+     "send_as": "q",
+     "type": "text"
+    }
+   },
+   "method": "GET",
+   "operation": "resolveReference",
+   "path": "/api/resolve"
+  },
+  "summarize_shipment": {
+   "fixed": {},
+   "has_body": true,
+   "inputs": {
+    "as_of": {
+     "in": "body",
+     "pattern": "^\\d{4}-\\d{2}-\\d{2}$",
+     "required": false,
+     "send_as": "as_of",
+     "type": "text"
+    },
+    "client": {
+     "in": "query",
+     "maxLength": 40,
+     "pattern": "^[A-Za-z0-9._-]{1,40}$",
+     "required": false,
+     "send_as": "client",
+     "type": "text"
+    },
+    "consignment": {
+     "in": "body",
+     "required": false,
+     "send_as": "consignment",
+     "type": "object"
+    },
+    "destination": {
+     "in": "body",
+     "required": false,
+     "send_as": "destination",
+     "type": "object"
+    },
+    "edition": {
+     "enum": [
+      "2025",
+      "2027"
+     ],
+     "in": "body",
+     "required": false,
+     "send_as": "edition",
+     "type": "text"
+    },
+    "envelope": {
+     "enum": [
+      "1",
+      "1.1",
+      "1.2"
+     ],
+     "in": "query",
+     "required": false,
+     "send_as": "envelope",
+     "type": "text"
+    },
+    "freight_cost": {
+     "in": "body",
+     "minimum": 0,
+     "required": false,
+     "send_as": "freight_cost",
+     "type": "number"
+    },
+    "if_stale": {
+     "enum": [
+      "refuse"
+     ],
+     "in": "query",
+     "required": false,
+     "send_as": "if_stale",
+     "type": "text"
+    },
+    "incoterm": {
+     "in": "body",
+     "required": false,
+     "send_as": "incoterm",
+     "type": "text"
+    },
+    "insurance_cost": {
+     "in": "body",
+     "minimum": 0,
+     "required": false,
+     "send_as": "insurance_cost",
+     "type": "number"
+    },
+    "items": {
+     "in": "body",
+     "required": false,
+     "send_as": "items",
+     "type": "array"
+    },
+    "mode": {
+     "enum": [
+      "road",
+      "air",
+      "sea",
+      "multimodal"
+     ],
+     "in": "body",
+     "required": false,
+     "send_as": "mode",
+     "type": "text"
+    },
+    "origin": {
+     "in": "body",
+     "required": false,
+     "send_as": "origin",
+     "type": "object"
+    }
+   },
+   "method": "POST",
+   "operation": "shipmentSummary",
+   "path": "/api/shipment/summary"
+  },
+  "test_connection": {
+   "fixed": {},
+   "has_body": false,
+   "inputs": {},
+   "method": "GET",
+   "operation": "listCodeLists",
+   "path": "/api/codes"
+  },
+  "validate_air_waybill": {
+   "fixed": {
+    "type": "awb"
+   },
+   "has_body": false,
+   "inputs": {
+    "air_waybill": {
+     "in": "query",
+     "required": true,
+     "send_as": "value",
+     "type": "text"
+    }
+   },
+   "method": "GET",
+   "operation": "validateIdentifier",
+   "path": "/api/validate"
+  },
+  "validate_consignment": {
+   "fixed": {},
+   "has_body": true,
+   "inputs": {
+    "client": {
+     "in": "query",
+     "maxLength": 40,
+     "pattern": "^[A-Za-z0-9._-]{1,40}$",
+     "required": false,
+     "send_as": "client",
+     "type": "text"
+    },
+    "consignment": {
+     "in": "body",
+     "required": true,
+     "send_as": "consignment",
+     "type": "object"
+    },
+    "envelope": {
+     "enum": [
+      "1",
+      "1.1",
+      "1.2"
+     ],
+     "in": "query",
+     "required": false,
+     "send_as": "envelope",
+     "type": "text"
+    },
+    "if_stale": {
+     "enum": [
+      "refuse"
+     ],
+     "in": "query",
+     "required": false,
+     "send_as": "if_stale",
+     "type": "text"
+    },
+    "type": {
+     "enum": [
+      "consignment"
+     ],
+     "in": "body",
+     "required": true,
+     "send_as": "type",
+     "type": "text"
+    }
+   },
+   "method": "POST",
+   "operation": "validateConsignmentObject",
+   "path": "/api/validate"
+  },
+  "validate_container_number": {
+   "fixed": {
+    "type": "container"
+   },
+   "has_body": false,
+   "inputs": {
+    "container_number": {
+     "in": "query",
+     "required": true,
+     "send_as": "value",
+     "type": "text"
+    }
+   },
+   "method": "GET",
+   "operation": "validateIdentifier",
+   "path": "/api/validate"
+  },
+  "validate_identifiers": {
+   "fixed": {},
+   "has_body": false,
+   "inputs": {
+    "client": {
+     "in": "query",
+     "maxLength": 40,
+     "pattern": "^[A-Za-z0-9._-]{1,40}$",
+     "required": false,
+     "send_as": "client",
+     "type": "text"
+    },
+    "envelope": {
+     "enum": [
+      "1",
+      "1.1",
+      "1.2"
+     ],
+     "in": "query",
+     "required": false,
+     "send_as": "envelope",
+     "type": "text"
+    },
+    "if_stale": {
+     "enum": [
+      "refuse"
+     ],
+     "in": "query",
+     "required": false,
+     "send_as": "if_stale",
+     "type": "text"
+    },
+    "text": {
+     "in": "query",
+     "required": false,
+     "send_as": "text",
+     "type": "text"
+    },
+    "type": {
+     "enum": [
+      "container",
+      "awb",
+      "imo"
+     ],
+     "in": "query",
+     "required": false,
+     "send_as": "type",
+     "type": "text"
+    },
+    "value": {
+     "in": "query",
+     "required": false,
+     "send_as": "value",
+     "type": "text"
+    }
+   },
+   "method": "GET",
+   "operation": "validateIdentifier",
+   "path": "/api/validate"
+  },
+  "verify_check_receipt": {
+   "fixed": {},
+   "has_body": false,
+   "inputs": {
+    "check_id": {
+     "in": "path",
+     "pattern": "^chk_[A-Za-z0-9_-]{22}$",
+     "required": true,
+     "send_as": "check_id",
+     "type": "text"
+    },
+    "envelope": {
+     "enum": [
+      "1",
+      "1.1",
+      "1.2"
+     ],
+     "in": "query",
+     "required": false,
+     "send_as": "envelope",
+     "type": "text"
+    }
+   },
+   "method": "GET",
+   "operation": "verifyCheckReceipt",
+   "path": "/api/receipts/{check_id}/verify"
+  }
+ }
+}
